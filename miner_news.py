@@ -18,7 +18,7 @@ def is_yesterday(dt_utc, tz=TZ):
 
 # Função para buscar notícias diretamente pela web
 def search_news_on_web(query):
-    search_url = f"https://api.openai.com/v1/engines/gpt-4o-mini/completions"
+    search_url = f"https://api.openai.com/v1/engines/gpt-4/completions"  # Alterando para gpt-4
     openai_api_key = os.environ.get("OPENAI_API_KEY")
     if not openai_api_key:
         print("Faltou OPENAI_API_KEY no ambiente.", file=sys.stderr)
@@ -35,7 +35,7 @@ def search_news_on_web(query):
         "Content-Type": "application/json",
     }
     payload = {
-        "model": "gpt-4o-mini",
+        "model": "gpt-4",  # Corrigido para gpt-4
         "messages": [
             {"role": "system", "content": "Você é um assistente que busca e resume notícias sobre mineração."},
             {"role": "user", "content": prompt},
@@ -85,7 +85,7 @@ Manchetes:
         "Content-Type": "application/json",
     }
     payload = {
-        "model": "gpt-4o-mini",
+        "model": "gpt-4",  # Corrigido para gpt-4
         "messages": [
             {"role": "system", "content": "Você resume notícias de forma clara e objetiva."},
             {"role": "user", "content": prompt},
