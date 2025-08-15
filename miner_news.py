@@ -6,6 +6,7 @@ import feedparser
 from datetime import datetime, timedelta, timezone
 from googletrans import Translator
 from zoneinfo import ZoneInfo
+from urllib.parse import quote  # Importando a função quote para codificar a URL
 
 # Configurações de fuso horário
 TZ = ZoneInfo("America/Bahia")  # seu fuso
@@ -18,7 +19,8 @@ def is_yesterday(dt_utc, tz=TZ):
 
 # Função para buscar notícias diretamente pela web
 def search_news_on_web(query):
-    search_url = f"https://news.google.com/rss/search?q={query}&hl=pt-BR&gl=BR&ceid=BR:pt-419"
+    query_encoded = quote(query)  # Codificando a query para evitar problemas com espaços
+    search_url = f"https://news.google.com/rss/search?q={query_encoded}&hl=pt-BR&gl=BR&ceid=BR:pt-419"
     fp = feedparser.parse(search_url)
     print(f"Feed retornou {len(fp.entries)} entradas")
     items = []
