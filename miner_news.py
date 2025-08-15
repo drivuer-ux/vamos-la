@@ -56,7 +56,7 @@ def is_trustworthy(source):
 
 # Função para buscar notícias diretamente pela web
 def search_news_on_web(query):
-    query_encoded = quote(query)
+    query_encoded = quote(query)  # Codificando a query para evitar problemas com espaços
     search_url = f"https://news.google.com/rss/search?q={query_encoded}&hl=pt-BR&gl=BR&ceid=BR:pt-419"
     fp = feedparser.parse(search_url)
     print(f"Feed retornou {len(fp.entries)} entradas")
@@ -72,13 +72,15 @@ def search_news_on_web(query):
             if t:
                 dt = datetime(*t[:6], tzinfo=timezone.utc)
                 break
+        # Se a data não estiver presente, ignoramos ou atribuimos uma data padrão
         if not dt:
-            continue
+            print(f"Data não encontrada para a notícia: {getattr(e, 'title', 'Título não disponível')}")
+            continue  # Ignorar ou atribuir data padrão, dependendo da necessidade
         if is_yesterday(dt):
             title = getattr(e, "title", "").strip()
             source = getattr(getattr(e, "source", {}), "title", "") or getattr(e, "source", "")
             score, reason = is_trustworthy(source)
-            shortened_link = shorten_url(link)
+            shortened_link = shorten_url(link)  # Encurtar o link antes de adicionar
             items.append({"title": title, "link": shortened_link, "source": source, "dt": dt, "score": score, "reason": reason})
             seen.add(link)
     items.sort(key=lambda x: x["dt"])
