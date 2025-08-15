@@ -1,43 +1,6 @@
 Resumo diário de mineração — 14/08/2025
-(Gerado em 15/08/2025 17:51 BRT)
+(Gerado em 15/08/2025 17:59 BRT)
 
-**Resumo em 14/08/2025: Mineração**
-
-1. Goiás busca liderança global na produção de minerais críticos, focando na exploração de terras raras e outros minerais estratégicos.
-2. A Mosaic vendeu sua única mina de potássio em operação no Brasil para a VL Mineração, alterando o cenário de produção de fertilizantes no país.
-3. Deputados pressionam por mais estruturação da Agência Nacional de Mineração (ANM) para combater a sonegação de royalties no setor.
-4. O possível fechamento do Senai em Corumbá pode impactar o setor de mineração em Mato Grosso do Sul.
-5. A ANM está se familiarizando com pesquisas e projetos do setor carbonífero, potencialmente afetando a produção de carvão.
-6. Especialistas alertam que Parauapebas, uma cidade dependente da mineração, precisa se preparar para um futuro sem a indústria.
-7. A justiça determinou a suspensão imediata de atividades de mineração na serra de Belo Vale, com bloqueio de R$ 20 milhões.
-
-**Principais manchetes:**
-
-- "Goiás mira protagonismo global com minerais críticos" - Estadão Blue Studio
-   - O estado de Goiás está buscando ser um líder global na produção de minerais críticos, com foco na exploração de terras raras e outros minerais estratégicos.
-
-- "Mosaic vende única mina de potássio em operação no Brasil para a VL Mineração" - Brasil Mineral
-   - A Mosaic vendeu sua única mina de potássio em operação no Brasil para a VL Mineração, o que pode alterar o cenário de produção de fertilizantes no país.
-
-- "Deputados cobram estruturação da ANM para combater sonegação de royalties da mineração" - Portal da Câmara dos Deputados
-   - Deputados estão pressionando por mais estruturação da Agência Nacional de Mineração (ANM) para combater a sonegação de royalties no setor de mineração.
-
-- "Senai pode fechar em Corumbá e impactar setor de mineração em MS" - Campo Grande News
-   - O possível fechamento do Senai em Corumbá pode ter um impacto significativo no setor de mineração em Mato Grosso do Sul.
-
-- "Agência Nacional de Mineração conhece pesquisas e projetos do Setor Carbonífero" - 4oito
-   - A Agência Nacional de Mineração (ANM) está se familiarizando com pesquisas e projetos do setor carbonífero, o que pode ter implicações para a produção de carvão no país.
-
-- ""Parauapebas precisa se preparar para o futuro sem a mineração", diz geólogo Breno Santos" - Correio de Carajás
-   - Especialistas estão alertando que Parauapebas, uma cidade que depende fortemente da mineração, precisa começar a se preparar para um futuro sem a indústria.
-
-- "Justiça determina suspensão imediata de mineração na serra de Belo Vale e bloqueia R$ 20 milhões" - Hoje em Dia
-   - A justiça determinou a suspensão imediata de todas as atividades de mineração na serra de Belo Vale e bloqueou R$ 20 milhões em ativos.
-
-**Links-chave:**
-
-1. [Goiás e minerais críticos - Estadão Blue Studio](https://news.google.com/rss/articles/CBMizAFBVV95cUxOb3lNWXlLQmZfdm9NLTVwaUh0eGd3bklVTkRrQVBCenl2cWZjOUtKSkZHUHVTRG5ZQXNOSkdtMmtESUR6Q2pVN0RJTlJhQlNzZXlMQldFVGlWM0dBa01TWVRmb1c4WWNrUnczMXl3RENBNlRuTlo4WUtJcDNFenRQLUV0SWZoZXRqOGJ6NTdDZWEydXNYZTh4dmR4MFNSRVFlUlNXZnlsZWpQa0hvd3VyWG9BLTdTZHBzN2FCM3J4M1JwUDN2NGhqY0Y4ZHo?oc=5)
-2. [Venda de mina de potássio - Brasil Mineral](https://news.google.com/rss/articles/CBMiuwFBVV95cUxNdjg5VE4zRXZPeXc2dHlYVmVyZjMzMlE1cDFuc2t5aUpPVlF1bEhKU3Nka2pfS25jY0xXTnlKOU9vVjZoMi05NUVzMjRWMmdsWGRNNXJ4S284a1NUeW5XczUxSy0zQkRVRTZNc0FiZjhhRHpTeDR3RGlEVU9qbmdzb1VCX2J3dlhkQVkzUGtHRUVOb2JiQmg5YWg2Q2lNT0V6bS03MzV4eVY2bjM1bFlKcUo3MGJsRHdsb3VJ?oc=5)
-3. [Estruturação da ANM - Portal da Câmara dos Deputados](https://news.google.com/rss/articles/CBMiygFBVV95cUxNcGkzQVFqMlEydVNES3NPMlNDSW9yNGxwQUFfUm9PVUo2Q0hIdXFQWUFXVkVFeU9lcTQ5MjM3cHZxMjVPeFJra1Bha0EtXzdtT3ZkWm81TjVLeU1mWEp4a1djLVk3WE5ZZlhBYXhiRXdiV25Nb2lYTVhETTRPSFMwaERhY2dKemsySEQ0RUpZODFpRGh6ZzBVZVdqd2ZvRlFXWkRxaG9YOVlibXUtZzlvc0JmeE00eXVSZUpnYm9LOVk4Szc1ZjFmVDd3?oc=5)
+Não foi possível gerar o resumo hoje. Erro: HTTPSConnectionPool(host='api.openai.com', port=443): Read timed out. (read timeout=60)
 
 — Fonte automatizada via Google News (PT-BR/BR).
