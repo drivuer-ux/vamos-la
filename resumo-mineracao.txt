@@ -1,6 +1,56 @@
 Resumo diário de mineração — 14/08/2025
-(Gerado em 15/08/2025 18:06 BRT)
+(Gerado em 15/08/2025 18:09 BRT)
 
-Não foi possível gerar o resumo hoje. Erro: HTTPSConnectionPool(host='api.openai.com', port=443): Read timed out. (read timeout=60)
+Resumo:
+1. Goiás busca se posicionar como líder global na produção de minerais críticos, com foco em nióbio e terras-raras (Estadão Blue Studio).
+2. A Mosaic vendeu sua única mina de potássio em operação no Brasil para a VL Mineração (Brasil Mineral, Canal Rural).
+3. Deputados pressionam por melhor estruturação da Agência Nacional de Mineração (ANM) para combater a sonegação de royalties da mineração (Portal da Câmara dos Deputados).
+4. O possível fechamento do Senai em Corumbá pode impactar o setor de mineração em Mato Grosso do Sul (Campo Grande News).
+5. A Agência Nacional de Mineração visitou o setor carbonífero para conhecer pesquisas e projetos em andamento (4oito).
+6. O geólogo Breno Santos alerta que Parauapebas precisa se preparar para um futuro sem mineração (Correio de Carajás).
+7. O espetáculo 'Zona de Sacrifício' aborda o impacto da mineração em Minas Gerais (O TEMPO).
+8. A Justiça determinou a suspensão imediata de mineração na serra de Belo Vale e bloqueou R$ 20 milhões (Hoje em Dia).
+
+Principais Manchetes:
+
+1. "Goiás mira protagonismo global com minerais críticos" (Estadão Blue Studio)
+Goiás está buscando se tornar um líder global na produção de minerais críticos, com foco em nióbio e terras-raras. O estado está investindo em tecnologia e infraestrutura para aumentar a produção e a exportação desses minerais.
+https://news.google.com/rss/articles/CBMizAFBVV95cUxOb3lNWXlLQmZfdm9NLTVwaUh0eGd3bklVTkRrQVBCenl2cWZjOUtKSkZHUHVTRG5ZQXNOSkdtMmtESUR6Q2pVN0RJTlJhQlNzZXlMQldFVGlWM0dBa01TWVRmb1c4WWNrUnczMXl3RENBNlRuTlo4WUtJcDNFenRQLUV0SWZoZXRqOGJ6NTdDZWEydXNYZTh4dmR4MFNSRVFlUlNXZnlsZWpQa0hvd3VyWG9BLTdTZHBzN2FCM3J4M1JwUDN2NGhqY0Y4ZHo?oc=5
+Categoria: Prospect Capital
+
+2. "Mosaic vende única mina de potássio em operação no Brasil para a VL Mineração" (Brasil Mineral)
+A Mosaic, uma das maiores empresas de fertilizantes do mundo, vendeu sua única mina de potássio em operação no Brasil para a VL Mineração. A venda faz parte da estratégia da Mosaic de se concentrar em seus ativos de fosfato e potássio na América do Norte.
+https://news.google.com/rss/articles/CBMiuwFBVV95cUxNdjg5VE4zRXZPeXc2dHlYVmVyZjMzMlE1cDFuc2t5aUpPVlF1bEhKU3Nka2pfS25jY0xXTnlKOU9vVjZoMi05NUVzMjRWMmdsWGRNNXJ4S284a1NUeW5XczUxSy0zQkRVRTZNc0FiZjhhRHpTeDR3RGlEVU9qbmdzb1VCX2J3dlhkQVkzUGtHRUVOb2JiQmg5YWg2Q2lNT0V6bS03MzV4eVY2bjM1bFlKcUo3MGJsRHdsb3VJ?oc=5
+Categoria: Prospect Capital
+
+3. "Deputados cobram estruturação da ANM para combater sonegação de royalties da mineração" (Portal da Câmara dos Deputados)
+Deputados estão pressionando por uma melhor estruturação da Agência Nacional de Mineração (ANM) para combater a sonegação de royalties da mineração. Eles argumentam que a falta de estrutura e pessoal na ANM está permitindo a sonegação de royalties, prejudicando o desenvolvimento de áreas impactadas pela mineração.
+https://news.google.com/rss/articles/CBMiygFBVV95cUxNcGkzQVFqMlEydVNES3NPMlNDSW9yNGxwQUFfUm9PVUo2Q0hIdXFQWUFXVkVFeU9lcTQ5MjM3cHZxMjVPeFJra1Bha0EtXzdtT3ZkWm81TjVLeU1mWEp4a1djLVk3WE5ZZlhBYXhiRXdiV25Nb2lYTVhETTRPSFMwaERhY2dKemsySEQ0RUpZODFpRGh6ZzBVZVdqd2ZvRlFXWkRxaG9YOVlibXUtZzlvc0JmeE00eXVSZUpnYm9LOVk4Szc1ZjFmVDd3?oc=5
+Categoria: Prospect Pro
+
+4. "Senai pode fechar em Corumbá e impactar setor de mineração em MS" (Campo Grande News)
+O possível fechamento do Senai em Corumbá, Mato Grosso do Sul, pode ter um impacto significativo no setor de mineração do estado. O Senai oferece cursos de formação para trabalhadores da indústria de mineração, e seu fechamento poderia levar a uma escassez de mão de obra qualificada.
+https://news.google.com/rss/articles/CBMivgFBVV95cUxNRzBZeUdGVUVIR2QzMnlXOFNScHpETjZJaC04LUw3aGlVVjY5SVhGYkUtTUpsTnhGcXVQV3RyQ0V0QWdrNjF3WXdjLWh3YW9nUW96eDdYZVcyaXZaNG8wNXQ3WUgxNFMxTFdscmVIaVhROVZ1enNkMkxXR0JESjFUX0NaMjkxRGlUWGkxOUtsUlpiU1IzUVFvVHNyRUROYVR0ZE1BMWdhaWJobkdsaWlQZHlNU3NvTFpRanM2XzFR0gG-AUFVX3lxTE9PX0F2LXRJdmxaSzZHbjBYWVZwQjNIUnM1ang3UW1uRThyYnJZOU5LTWU0NWNFTTB6RkNLN3N6WG9sZHppbnpJUlllX1RvWU95clpSS2QzUlhJQk1QanVaOE5IU2lEWlVWdmc0Y2tkVU0zT3g4UnpPVkpBTTlVYUN3RHN3Zm9Ma3FDeEdRdTBqbEMtelotaXhsdFVsbVdaVmNkam5qVjI5dDc4YTFRV2FWRi1WQnhWVFJ0eGhENGc?oc=5
+Categoria: Prospect Pro
+
+5. "Agência Nacional de Mineração conhece pesquisas e projetos do Setor Carbonífero" (4oito)
+Representantes da Agência Nacional de Mineração visitaram o setor carbonífero para conhecer pesquisas e projetos em andamento. A visita faz parte dos esforços da ANM para melhorar a regulamentação e o apoio à indústria de mineração de carvão.
+https://news.google.com/rss/articles/CBMiugFBVV95cUxNd0VyNjg4STJUZmYtSlN2eGw4UjYzeENDNU42LUtJdlVZT19xYUZrTDlNZkxaY2p5dHI1bWFxOTBsc29pYXBXNFlxcVZlYklwSjFqU3NGZWtIaU92ZklPUTRUQ2QtT0N0TENmZDRfRFk5Y2ltZ2ZkdHhBaXk4Z1EwOGVLYXZfX3ByTHdERTNmRHhYZVpoaHphVkRTME5qQm92end6TFZhb3hERnB6TGRVMmVaYmNydkhDeWc?oc=5
+Categoria: Prospect Pro
+
+6. "Parauapebas precisa se preparar para o futuro sem a mineração", diz geólogo Breno Santos (Correio de Carajás)
+O geólogo Breno Santos alertou que a cidade de Parauapebas, no Pará, precisa começar a se preparar para um futuro sem mineração. Ele argumenta que a cidade precisa diversificar sua economia e investir em educação e infraestrutura para se preparar para quando as reservas de minério de ferro se esgotarem.
+https://news.google.com/rss/articles/CBMiuwFBVV95cUxPalRQYmdFc0xrZUZIVkM1bjNkdk96NXZkdjlPenlBQTk5a2p4Ylp0REhkZGdWaWkxSWZUM09tREp3ZTQ3aUduekNURlNOZXMtNUlsSnVMS0lvZEFNdDByeWlpemxESHJYNHFpV0F5T0lDWll1UFJMY08yajFwSWg3empCZ0JZWGlyQUNoVEJaZDZDQkYtUmJ2R19PeHVIOTJOVHpiUEE1Z0U4UjJRSXMyVFVaOXVvVE95UklJ?oc=5
+Categoria: Prospect Rochas & Histórias
+
+7. "Espetáculo 'Zona de Sacrifício' aborda impacto mineração em Minas; veja detalhes" (O TEMPO)
+O espetáculo teatral 'Zona de Sacrifício' está abordando o impacto da mineração em Minas Gerais. A peça busca conscientizar o público sobre os danos ambientais e sociais causados pela mineração e promover o debate sobre a necessidade de regulamentação mais rigorosa da indústria.
+https://news.google.com/rss/articles/CBMixwFBVV95cUxOeGFRZDc1MVA1QnVYM3A0N1pPVVVIWGsxWHFKbDRGZDV6RmFJcTUzMUpRbUJ5ZXFhOTE0Z0kyMTBITXpKS2lWVGpfYVl1bElDa1E5NEc3SmhPMmxLa3JHWGlmWUN6SGZKVmhCVGdPbFNYV3poV2Z3OXhDZVhMeXlId3VCcy1Ea2FYVVNyMmZCVDhhNm1NTmJGbUl3X0hwVEVYUTRqUFkyQkdxVzNaQjFJTG5HdWx6OTdTbXNJSGhST1dzaWhNQmhn?oc=5
+Categoria: Prospect Rochas & Histórias
+
+8. "Justiça determina suspensão imediata de mineração na serra de Belo Vale e bloqueia R$ 20 milhões" (Hoje em Dia)
+A Justiça determinou a suspensão imediata de todas as atividades de mineração na serra de Belo Vale, em Minas Gerais, e bloqueou R$ 20 milhões em ativos da empresa responsável. A decisão foi tomada em resposta a uma ação civil pública que alega danos ambientais causados pela mineração na região.
+https://news.google.com/rss/articles/CBMi1wFBVV95cUxOazF4ZEQ2ZUNDa0drUUM0ZlI0NldRM1dyQTYtS2tJMWVpMzlXV1FUalZxSHRpcHBrRTdvRDdCa1FnX1d1bi1DR3hNdjRWUGN0T3ctMHdmRnMxXzJjZVlCWUZaaXgxeDZ1X0t0dEVvd0xBZGxvcHZkaUNyUWpOdGVFSmF3RGZ6WGpSYm9nWkZqSEQxS2h2YmhiN090bUhhZ2k4SzA0QnByNndaV2tDN1hFZmlSVXRRWERaWTNoeXQ2bkgxYWNTM0tBMk5xNHRnRi1tenN1VlNnWQ?oc=5
+Categoria: Prospect Rochas & Histórias
 
 — Fonte automatizada via Google News (PT-BR/BR).
