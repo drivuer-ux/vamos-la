@@ -3,13 +3,16 @@ import os
 import sys
 import requests
 import feedparser
+import json
 from datetime import datetime, timedelta, timezone
 from googletrans import Translator
 from zoneinfo import ZoneInfo
-from urllib.parse import quote  # Importando a função quote para codificar a URL
+from urllib.parse import quote
+from fpdf import FPDF  # Biblioteca para gerar PDFs
+from sklearn.linear_model import LinearRegression  # Exemplo de modelo para prever tendências
 
 # Configurações de fuso horário
-TZ = ZoneInfo("America/Bahia")  # seu fuso
+TZ = ZoneInfo("America/Bahia")
 UA = {"User-Agent": "Mozilla/5.0 (+news-bot)"}
 
 # Função para verificar se a notícia é de ontem
@@ -22,14 +25,38 @@ def shorten_url(url):
     api_url = f"http://tinyurl.com/api-create.php?url={url}"
     response = requests.get(api_url)
     if response.status_code == 200:
-        return response.text  # O link encurtado será retornado como resposta
+        return response.text
     else:
         print(f"Erro ao encurtar o link: {url}")
-        return url  # Retorna o URL original em caso de falha
+        return url
+
+# Função para verificar se a fonte é confiável
+def is_trustworthy(source):
+    # Fontes confiáveis locais e internacionais
+    trusted_sources = {
+        "Reuters": (10, "Fonte globalmente reconhecida com uma abordagem jornalística rigorosa."),
+        "BBC": (10, "Fonte internacional com grande credibilidade."),
+        "The Guardian": (9, "Fonte internacional com bom histórico de reportagens bem apuradas."),
+        "Nature": (9, "Fonte acadêmica respeitada na área de ciências e pesquisa."),
+        "Science": (9, "Fonte científica altamente confiável."),
+        "Folha de S. Paulo": (8, "Fonte nacional amplamente respeitada e de longa trajetória."),
+        "O Globo": (8, "Fonte nacional com grande audiência e histórica credibilidade."),
+        "Estadão": (8, "Fonte de grande circulação no Brasil com notícias bem apuradas."),
+        "G1": (7, "Fonte nacional que oferece uma boa cobertura de notícias, embora com algumas falhas ocasionais."),
+        "Veja": (7, "Fonte de renome, mas com uma abordagem mais voltada para opiniões e posicionamentos."),
+        "Correio Braziliense": (6, "Fonte local com boa cobertura, mas com algumas críticas sobre imparcialidade."),
+        "Diário de Pernambuco": (6, "Fonte local importante, mas com limitações em algumas áreas de cobertura."),
+    }
+    # Pontuação e justificativa para a confiabilidade
+    if source in trusted_sources:
+        score, reason = trusted_sources[source]
+    else:
+        score, reason = (5, "Fonte não reconhecida. Requer análise crítica adicional.")
+    return score, reason
 
 # Função para buscar notícias diretamente pela web
 def search_news_on_web(query):
-    query_encoded = quote(query)  # Codificando a query para evitar problemas com espaços
+    query_encoded = quote(query)
     search_url = f"https://news.google.com/rss/search?q={query_encoded}&hl=pt-BR&gl=BR&ceid=BR:pt-419"
     fp = feedparser.parse(search_url)
     print(f"Feed retornou {len(fp.entries)} entradas")
@@ -50,8 +77,9 @@ def search_news_on_web(query):
         if is_yesterday(dt):
             title = getattr(e, "title", "").strip()
             source = getattr(getattr(e, "source", {}), "title", "") or getattr(e, "source", "")
-            shortened_link = shorten_url(link)  # Encurtar o link antes de adicionar
-            items.append({"title": title, "link": shortened_link, "source": source, "dt": dt})
+            score, reason = is_trustworthy(source)
+            shortened_link = shorten_url(link)
+            items.append({"title": title, "link": shortened_link, "source": source, "dt": dt, "score": score, "reason": reason})
             seen.add(link)
     items.sort(key=lambda x: x["dt"])
     return items
@@ -74,9 +102,11 @@ Tarefas:
 4) Abaixo de cada notícia, forneça um resumo com 4 a 8 linhas explicando o conteúdo da notícia de forma clara e objetiva.
 5) Coloque os links das fontes diretamente abaixo de cada notícia, se possível.
 6) Se houver mais de um site com o mesmo assunto, inclua as informações de ambos os sites, detalhando as fontes. Caso contrário, forneça apenas a fonte encontrada.
-7) Ignore completamente qualquer manchete que não seja de {yday_date} ou que seja de anos anteriores, mesmo que pareça relevante.
-8) Use {yday_date} como data de referência no título e no conteúdo.
-9) Confirme que gerou no mínimo 3 notícias para cada público.
+7) Informe o **rank de confiabilidade da fonte** de 1 a 10, onde 1 é pouco confiável e 10 é muito confiável.
+8) Forneça uma **justificativa** sobre a confiabilidade de cada fonte, explicando o porquê.
+9) Ignore completamente qualquer manchete que não seja de {yday_date} ou que seja de anos anteriores, mesmo que pareça relevante.
+10) Use {yday_date} como data de referência no título e no conteúdo.
+11) Confirme que gerou no mínimo 3 notícias para cada público.
 
 Manchetes:
 ---
@@ -95,10 +125,30 @@ Manchetes:
         ],
         "temperature": 0.3,
     }
-    r = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload, timeout=120)  # Aumentando o timeout para 120 segundos
+    r = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload, timeout=600)  # Aumentando o timeout para 10 minutos
     r.raise_for_status()
     data = r.json()
     return data["choices"][0]["message"]["content"].strip()
+
+# Função para prever tendências com IA
+def predict_trends(news_data):
+    # Exemplo simples de previsão com LinearRegression
+    model = LinearRegression()
+    X = [[i] for i in range(len(news_data))]  # Índices como variável independente
+    y = [news["dt"].timestamp() for news in news_data]  # Timestamps das notícias
+    model.fit(X, y)
+    trend = model.predict([[len(news_data)]])  # Prevendo a tendência futura
+    return trend
+
+# Função para gerar relatórios em PDF
+def generate_pdf(report_text, output_filename="relatorio_mineracao.pdf"):
+    pdf = FPDF()
+    pdf.set_auto_page_break(auto=True, margin=15)
+    pdf.add_page()
+    pdf.set_font("Arial", size=12)
+    pdf.multi_cell(0, 10, report_text)
+    pdf.output(output_filename)
+    print(f"Relatório PDF gerado: {output_filename}")
 
 def main():
     openai_api_key = os.environ.get("OPENAI_API_KEY")
@@ -127,19 +177,13 @@ def main():
         summary = "Não foi possível gerar o resumo hoje. Erro: " + str(e)
         print(f"Erro na API: {str(e)}")
 
-    now_ba = datetime.now(TZ).strftime("%d/%m/%Y %H:%M")
-    out = [
-        f"Resumo diário de mineração — {yday_date}",
-        f"(Gerado em {now_ba} BRT)\n",
-        summary,
-        "\n— Fonte automatizada via Google News (PT-BR/BR)."
-    ]
-    text = "\n".join(out).strip() + "\n"
-    print(f"Texto final a ser salvo: {text[:200]}...")
+    # Prevendo tendências com IA (exemplo simples)
+    trend = predict_trends(items)
+    print(f"Tendência prevista: {trend}")
 
-    with open("resumo-mineracao.txt", "w", encoding="utf-8") as f:
-        f.write(text)
-        print("Arquivo salvo com sucesso!")
+    # Gerando relatório em PDF
+    report_text = f"Resumo diário de mineração — {yday_date}\n\n{summary}\n\nTendência prevista: {trend}"
+    generate_pdf(report_text)
 
 if __name__ == "__main__":
     main()
