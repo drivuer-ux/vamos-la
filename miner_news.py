@@ -56,10 +56,10 @@ Tarefas:
 2) Na seção "Principais manchetes", liste de 8 a 15 notícias.  
    - Para cada notícia, escreva o título seguido da fonte entre parênteses.  
    - Logo abaixo, insira um parágrafo com 4 a 8 linhas explicando o conteúdo da notícia de forma clara e objetiva.  
-3) Na seção "Links-chave", inclua apenas 3–5 URLs mais relevantes e atuais.
+3) Na seção "Links-chave", inclua todas as URLs mais relevantes e atuais, os links devem ficar abaixo de cada noticia e não em uma seção separada.
 4) Ignore completamente qualquer manchete que não seja de {yday_date} ou que seja de anos anteriores, mesmo que pareça relevante.
 5) Use {yday_date} como data de referência no título e no conteúdo.
-6) Confirme que gerou no mínimo 3 notícias
+6) Confirme que gerou no mínimo 6 notícias
 
 Manchetes:
 ---
