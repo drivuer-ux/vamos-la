@@ -1,0 +1,57 @@
+name: resumo-mineracao-diario
+
+on:
+  schedule:
+    - cron: "0 10 * * *"   # 10:00 UTC = 07:00 America/Bahia
+  workflow_dispatch: {}     # opcional: rodar manualmente
+
+permissions:
+  contents: write  # permite commit no repo a partir do workflow
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # necessário para conseguir fazer commit e push
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install feedparser requests
+
+      - name: Generate summary
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          echo "Iniciando o script..."
+          python miner_news.py
+          echo "Script terminado. Verificando arquivos:"
+          ls -la
+          if [ -f resumo-mineracao.txt ]; then
+            echo "Arquivo criado! Conteúdo:"
+            cat resumo-mineracao.txt
+          else
+            echo "Arquivo NÃO criado!"
+            exit 1
+          fi
+
+      - name: Commit & push if changed
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add resumo-mineracao.txt
+          if git diff --cached --quiet; then
+            echo "Sem mudanças para commitar."
+          else
+            git commit -m "Atualiza resumo de mineração [skip ci]"
+            git push
+            echo "Commit enviado com sucesso."
+          fi
