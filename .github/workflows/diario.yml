@@ -54,3 +54,4 @@ jobs:
             git commit -m "Atualiza resumo de mineração [skip ci]"
             git push
             echo "Commit enviado com sucesso."
+          fi
