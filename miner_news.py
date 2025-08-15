@@ -17,6 +17,16 @@ def is_yesterday(dt_utc, tz=TZ):
     yday = (datetime.now(tz).date() - timedelta(days=1))
     return dt_utc.astimezone(tz).date() == yday
 
+# Função para encurtar o link usando o TinyURL
+def shorten_url(url):
+    api_url = f"http://tinyurl.com/api-create.php?url={url}"
+    response = requests.get(api_url)
+    if response.status_code == 200:
+        return response.text  # O link encurtado será retornado como resposta
+    else:
+        print(f"Erro ao encurtar o link: {url}")
+        return url  # Retorna o URL original em caso de falha
+
 # Função para buscar notícias diretamente pela web
 def search_news_on_web(query):
     query_encoded = quote(query)  # Codificando a query para evitar problemas com espaços
@@ -40,7 +50,8 @@ def search_news_on_web(query):
         if is_yesterday(dt):
             title = getattr(e, "title", "").strip()
             source = getattr(getattr(e, "source", {}), "title", "") or getattr(e, "source", "")
-            items.append({"title": title, "link": link, "source": source, "dt": dt})
+            shortened_link = shorten_url(link)  # Encurtar o link antes de adicionar
+            items.append({"title": title, "link": shortened_link, "source": source, "dt": dt})
             seen.add(link)
     items.sort(key=lambda x: x["dt"])
     return items
@@ -53,21 +64,19 @@ A seguir estão manchetes coletadas APENAS da data {yday_date}, no contexto de m
 
 Tarefas:
 1) Produza um resumo em português do Brasil (PT-BR), direto ao ponto, com 5–10 tópicos do que realmente IMPORTA, sem floreio, sem opinião e sem redundância.
-2) Na seção "Principais manchetes", liste de 8 a 15 notícias.
-   - Para cada notícia, escreva o título seguido da fonte entre parênteses.
-   - Logo abaixo, insira um parágrafo com 4 a 8 linhas explicando o conteúdo da notícia de forma clara e objetiva.
-   - Os links das fontes de cada notícia devem ser colocados logo abaixo da explicação de cada notícia.
-   - Atribua uma categoria e defina um tom conforme a categoria:
-     - **Mapa do Conhecimento Prospect**: Público-alvo: Universidades, pesquisadores, estudantes. Tom: educativo, formativo, inspirador. Slug: mapa-do-conhecimento-prospect
-     - **Prospect Capital**: Público-alvo: Interessados em investimentos e negócios em mineração. Tom: estratégico, econômico, visão de mercado. Slug: prospect-capital
-     - **Prospect Pro**: Público-alvo: Geólogos, engenheiros, mineradoras, consultores. Tom: técnico, profissional, detalhado. Slug: prospect-pro
-     - **Prospect Rochas & Histórias**: Público-alvo: Público geral interessado em mineração e meio ambiente. Tom: acessível, envolvente, curioso. Slug: prospect-rochas-e-historias
-3) Não crie uma seção separada para os links. Cada notícia deve ter os links das fontes diretamente abaixo dela, se possível.
-4) Se houver mais de um site com o mesmo assunto, inclua as informações de ambos os sites, detalhando as fontes. Caso contrário, forneça apenas a fonte encontrada.
-5) Ignore completamente qualquer manchete que não seja de {yday_date} ou que seja de anos anteriores, mesmo que pareça relevante.
-6) Use {yday_date} como data de referência no título e no conteúdo.
-7) Confirme que gerou no mínimo 3 notícias, com as categorias mencionadas acima.
-8) Se alguma manchete estiver em inglês, traduza para o português.
+2) Organize as notícias conforme o público-alvo:
+   - **Mapa do Conhecimento Prospect**: Público-alvo: Universidades, pesquisadores, estudantes. Tom: educativo, formativo, inspirador. Slug: mapa-do-conhecimento-prospect
+   - **Prospect Capital**: Público-alvo: Interessados em investimentos e negócios em mineração. Tom: estratégico, econômico, visão de mercado. Slug: prospect-capital
+   - **Prospect Pro**: Público-alvo: Geólogos, engenheiros, mineradoras, consultores. Tom: técnico, profissional, detalhado. Slug: prospect-pro
+   - **Prospect Rochas & Histórias**: Público-alvo: Público geral interessado em mineração e meio ambiente. Tom: acessível, envolvente, curioso. Slug: prospect-rochas-e-historias
+
+3) Para cada público, escreva o título seguido da fonte entre parênteses.
+4) Abaixo de cada notícia, forneça um resumo com 4 a 8 linhas explicando o conteúdo da notícia de forma clara e objetiva.
+5) Coloque os links das fontes diretamente abaixo de cada notícia, se possível.
+6) Se houver mais de um site com o mesmo assunto, inclua as informações de ambos os sites, detalhando as fontes. Caso contrário, forneça apenas a fonte encontrada.
+7) Ignore completamente qualquer manchete que não seja de {yday_date} ou que seja de anos anteriores, mesmo que pareça relevante.
+8) Use {yday_date} como data de referência no título e no conteúdo.
+9) Confirme que gerou no mínimo 3 notícias para cada público.
 
 Manchetes:
 ---
