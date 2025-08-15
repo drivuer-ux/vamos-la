@@ -1,5 +1,5 @@
 Resumo diário de mineração — 14/08/2025
-(Gerado em 15/08/2025 17:59 BRT)
+(Gerado em 15/08/2025 18:06 BRT)
 
 Não foi possível gerar o resumo hoje. Erro: HTTPSConnectionPool(host='api.openai.com', port=443): Read timed out. (read timeout=60)
 
