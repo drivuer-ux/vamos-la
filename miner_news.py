@@ -86,7 +86,7 @@ Manchetes:
         ],
         "temperature": 0.3,
     }
-    r = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload, timeout=60)
+    r = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload, timeout=120)  # Aumentando o timeout para 120 segundos
     r.raise_for_status()
     data = r.json()
     return data["choices"][0]["message"]["content"].strip()
