@@ -25,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install feedparser requests googletrans==4.0.0-rc1 scikit-learn  # Adicionando scikit-learn
+          pip install feedparser requests googletrans==4.0.0-rc1 fpdf scikit-learn weasyprint  # Adicionando weasyprint
 
       - name: Generate summary
         env:
