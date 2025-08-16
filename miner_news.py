@@ -10,6 +10,7 @@ from zoneinfo import ZoneInfo
 from urllib.parse import quote
 from fpdf import FPDF  # Biblioteca para gerar PDFs
 from sklearn.linear_model import LinearRegression  # Exemplo de modelo para prever tendências
+from weasyprint import HTML # Biblioteca para gerar PDFs a partir de HTML/CSS
 
 # Configurações de fuso horário
 TZ = ZoneInfo("America/Bahia")
@@ -23,7 +24,7 @@ def is_yesterday(dt_utc, tz=TZ):
 # Função para encurtar o link usando o TinyURL
 def shorten_url(url):
     api_url = f"http://tinyurl.com/api-create.php?url={url}"
-    response = requests.get(api_url)
+    response = requests.get(api_url )
     if response.status_code == 200:
         return response.text
     else:
@@ -58,7 +59,7 @@ def is_trustworthy(source):
 def search_news_on_web(query):
     query_encoded = quote(query)  # Codificando a query para evitar problemas com espaços
     search_url = f"https://news.google.com/rss/search?q={query_encoded}&hl=pt-BR&gl=BR&ceid=BR:pt-419"
-    fp = feedparser.parse(search_url)
+    fp = feedparser.parse(search_url )
     print(f"Feed retornou {len(fp.entries)} entradas")
     items = []
     seen = set()
@@ -127,7 +128,7 @@ Manchetes:
         ],
         "temperature": 0.3,
     }
-    r = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload, timeout=600)  # Aumentando o timeout para 10 minutos
+    r = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload, timeout=600 )  # Aumentando o timeout para 10 minutos
     r.raise_for_status()
     data = r.json()
     return data["choices"][0]["message"]["content"].strip()
@@ -142,14 +143,27 @@ def predict_trends(news_data):
     trend = model.predict([[len(news_data)]])  # Prevendo a tendência futura
     return trend
 
-# Função para gerar relatórios em PDF
+# Função para gerar relatórios em PDF usando WeasyPrint
 def generate_pdf(report_text, output_filename="relatorio_mineracao.pdf"):
-    pdf = FPDF()
-    pdf.set_auto_page_break(auto=True, margin=15)
-    pdf.add_page()
-    pdf.set_font("Arial", size=12)
-    pdf.multi_cell(0, 10, report_text)
-    pdf.output(output_filename)
+    html_content = f"""
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>Relatório de Mineração</title>
+        <style>
+            body {{ font-family: Arial, sans-serif; margin: 20mm; }}
+            h1 {{ color: #333; }}
+            pre {{ white-space: pre-wrap; word-wrap: break-word; font-family: Arial, sans-serif; }}
+        </style>
+    </head>
+    <body>
+        <h1>Relatório Diário de Mineração</h1>
+        <pre>{report_text}</pre>
+    </body>
+    </html>
+    """
+    HTML(string=html_content).write_pdf(output_filename)
     print(f"Relatório PDF gerado: {output_filename}")
 
 def main():
@@ -165,7 +179,7 @@ def main():
 
     if not items:
         print("Nenhuma notícia de ontem encontrada, utilizando fallback com as 10 mais recentes.")
-        fp = feedparser.parse("https://news.google.com/rss/search?q=minera%C3%A7%C3%A3o&hl=pt-BR&gl=BR&ceid=BR:pt-419")
+        fp = feedparser.parse("https://news.google.com/rss/search?q=minera%C3%A7%C3%A3o&hl=pt-BR&gl=BR&ceid=BR:pt-419" )
         items = [{"title": getattr(e, "title", "").strip(), "link": getattr(e, "link", ""), "source": getattr(getattr(e, "source", {}), "title", "")} for e in fp.entries[:10]]
 
     lines = [f"• {it['title']} — {it.get('source', '')} — {it['link']}" for it in items]
