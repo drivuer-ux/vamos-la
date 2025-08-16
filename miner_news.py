@@ -8,7 +8,9 @@ from datetime import datetime, timedelta, timezone
 from googletrans import Translator
 from zoneinfo import ZoneInfo
 from urllib.parse import quote
+from fpdf import FPDF  # Biblioteca para gerar PDFs
 from sklearn.linear_model import LinearRegression  # Exemplo de modelo para prever tendências
+from weasyprint import HTML # Biblioteca para gerar PDFs a partir de HTML/CSS
 
 # Configurações de fuso horário
 TZ = ZoneInfo("America/Bahia")
@@ -126,7 +128,7 @@ Manchetes:
         ],
         "temperature": 0.3,
     }
-    r = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload, timeout=600)  # Aumentando o timeout para 10 minutos
+    r = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload, timeout=600 )  # Aumentando o timeout para 10 minutos
     r.raise_for_status()
     data = r.json()
     return data["choices"][0]["message"]["content"].strip()
