@@ -21,12 +21,27 @@ SOURCE_RELIABILITY = {
     "IBRAM": 2,
 }
 
+# --- FUNÇÕES AUXILIARES ---
+
+def shorten_url(url):
+    """Encurta uma URL usando a API do TinyURL para links mais limpos."""
+    try:
+        api_url = f"http://tinyurl.com/api-create.php?url={quote(url )}"
+        response = requests.get(api_url, headers={'User-Agent': USER_AGENT_STRING}, timeout=10)
+        response.raise_for_status()
+        return response.text
+    except requests.RequestException as e:
+        print(f"  -> Alerta: Falha ao encurtar URL. Usando link original. Erro: {e}")
+        return url
+
 def is_yesterday(dt_utc, tz=TZ):
+    """Verifica se a data da notícia corresponde a ontem."""
     if not dt_utc: return False
     yesterday = (datetime.now(tz).date() - timedelta(days=1))
     return dt_utc.astimezone(tz).date() == yesterday
 
 def search_google_news(query, language_code, translator):
+    """Busca notícias no Google News, filtra, traduz e encurta os links."""
     query_encoded = quote(query)
     search_url = f"https://news.google.com/rss/search?q={query_encoded}&hl={language_code}&gl={language_code.split('-' )[1]}"
     
@@ -42,7 +57,9 @@ def search_google_news(query, language_code, translator):
         if is_yesterday(dt_utc):
             title = entry.title
             source_name = entry.source.get('title', 'Fonte desconhecida')
-            link = entry.link
+            
+            # Encurta o link aqui
+            link = shorten_url(entry.link)
 
             if language_code == 'en-US':
                 try:
@@ -59,25 +76,23 @@ def search_google_news(query, language_code, translator):
     return items
 
 def call_openai_for_analysis(news_items, yday_date, openai_api_key):
+    """Chama a API da OpenAI com o prompt final e corrigido."""
+    
     formatted_news = ""
     for item in news_items:
         formatted_news += f"- Título: {item['title']}\n"
         formatted_news += f"  Fonte: {item['source']} (Confiabilidade: {item['reliability']}/5)\n"
         formatted_news += f"  Link: {item['link']}\n\n"
 
-    # --- INÍCIO DA CORREÇÃO ---
-    # As chaves que são parte do texto (e não variáveis) foram duplicadas para {{ e }}
     prompt = f"""
-Você é um jornalista e editor-chefe de um portal de notícias sobre mineração. Sua tarefa é analisar as manchetes do dia {yday_date} e escrever notícias completas e originais para o seu público.
-
-**SUA MISSÃO:**
-Transformar uma lista de manchetes em um boletim de notícias bem escrito. Para cada evento significativo, você deve **redigir uma notícia completa**, não um resumo.
+Você é um jornalista e editor-chefe de um portal de notícias sobre mineração (extração de minerais da terra). Sua tarefa é analisar as manchetes do dia {yday_date} e escrever notícias completas e originais.
 
 **REGRAS DE OURO:**
-1.  **NÃO RESUMA, ESCREVA:** Para cada evento, crie um texto jornalístico. Comece com um parágrafo principal (lide), desenvolva o contexto nos parágrafos seguintes e, se possível, adicione uma análise sobre o impacto. A notícia deve ter entre 3 e 5 parágrafos.
-2.  **SINTETIZE FONTES:** Se várias manchetes cobrem o mesmo fato, use-as para enriquecer uma única notícia. Combine as informações para criar a matéria mais completa possível.
-3.  **TÍTULO ORIGINAL:** Crie um título chamativo e informativo para cada notícia que você escrever.
-4.  **ESTRUTURA DE CATEGORIAS OBRIGATÓRIA:** Organize as notícias que você escreveu DENTRO das seguintes categorias. Estas categorias são fixas e devem estar presentes no output. Se não houver notícia para uma categoria, escreva "Nenhuma notícia relevante para esta categoria hoje."
+1.  **FOCO EXCLUSIVO EM MINERAÇÃO DE MINÉRIOS:** Ignore **COMPLETAMENTE** qualquer notícia sobre "mineração" de criptomoedas, Bitcoin, blockchain, NFTs ou ativos digitais. Seu foco é apenas na indústria de extração mineral (ferro, cobre, lítio, ouro, etc.).
+2.  **NÃO RESUMA, ESCREVA:** Para cada evento, crie um texto jornalístico. Comece com um parágrafo principal (lide), desenvolva o contexto nos parágrafos seguintes e, se possível, adicione uma análise sobre o impacto. A notícia deve ter entre 3 e 5 parágrafos.
+3.  **SINTETIZE FONTES:** Se várias manchetes cobrem o mesmo fato, use-as para enriquecer uma única notícia. Combine as informações para criar a matéria mais completa possível.
+4.  **TÍTULO ORIGINAL:** Crie um título chamativo e informativo para cada notícia que você escrever.
+5.  **ESTRUTURA DE CATEGORIAS OBRIGATÓRIA:** Organize as notícias que você escreveu DENTRO das seguintes categorias. Estas categorias são fixas e devem estar presentes no output. Se não houver notícia para uma categoria, escreva "Nenhuma notícia relevante para esta categoria hoje."
 
 ---
 **BOLETIM DE NOTÍCIAS DE MINERAÇÃO - {yday_date}**
@@ -113,13 +128,11 @@ Transformar uma lista de manchetes em um boletim de notícias bem escrito. Para 
 **Manchetes Brutas para sua Análise:**
 {formatted_news}
 """
-    # --- FIM DA CORREÇÃO ---
-
-    print("Enviando requisição para a API da OpenAI com o prompt final focado em notícias completas...")
+    print("Enviando requisição para a API da OpenAI com o prompt final e corrigido...")
     headers = {"Authorization": f"Bearer {openai_api_key}", "Content-Type": "application/json"}
     payload = {
         "model": "gpt-4o",
-        "messages": [{"role": "system", "content": "Você é um jornalista que escreve notícias completas sobre mineração para um blog."}, {"role": "user", "content": prompt}],
+        "messages": [{"role": "system", "content": "Você é um jornalista que escreve notícias completas sobre mineração (de minérios) para um blog."}, {"role": "user", "content": prompt}],
         "temperature": 0.6,
         "max_tokens": 3800,
     }
@@ -145,8 +158,8 @@ def main():
     seen_links = set()
     
     queries = {
-        "mineração OR 'setor mineral'": "pt-BR",
-        "mining industry OR mineral sector OR mining technology": "en-US"
+        "mineração OR 'setor mineral' -criptomoedas -bitcoin": "pt-BR",
+        "mining industry OR mineral sector -crypto -bitcoin": "en-US"
     }
     
     for query, lang in queries.items():
