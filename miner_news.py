@@ -11,7 +11,7 @@ from urllib.parse import quote
 # Fuso horário para referência do "dia anterior"
 TZ = ZoneInfo("America/Bahia")
 # User-Agent para evitar bloqueios em requisições HTTP
-UA = {"User-Agent": "Mozilla/5.0 (compatible; NewsBot/1.0; +https://github.com/features/actions )"}
+USER_AGENT_STRING = "Mozilla/5.0 (compatible; NewsBot/1.0; +https://github.com/features/actions )"
 # Nome do arquivo de saída
 OUTPUT_FILENAME = "resumo-mineracao.txt"
 
@@ -26,7 +26,9 @@ def shorten_url(url):
     """Encurta uma URL usando a API do TinyURL."""
     try:
         api_url = f"http://tinyurl.com/api-create.php?url={quote(url )}"
-        response = requests.get(api_url, headers=UA, timeout=10)
+        # Passamos o User-Agent como um header na requisição
+        headers = {'User-Agent': USER_AGENT_STRING}
+        response = requests.get(api_url, headers=headers, timeout=10)
         response.raise_for_status()
         return response.text
     except requests.RequestException as e:
@@ -39,7 +41,12 @@ def search_news_on_web(query):
     search_url = f"https://news.google.com/rss/search?q={query_encoded}&hl=pt-BR&gl=BR&ceid=BR:pt-419"
     
     print(f"Buscando notícias com a query: '{query}'" )
-    fp = feedparser.parse(search_url, agent=UA)
+    
+    # --- INÍCIO DA CORREÇÃO ---
+    # O parâmetro 'agent' espera uma string, não um dicionário.
+    # Passamos a string diretamente.
+    fp = feedparser.parse(search_url, agent=USER_AGENT_STRING)
+    # --- FIM DA CORREÇÃO ---
     
     items = []
     seen_links = set()
@@ -65,7 +72,6 @@ def search_news_on_web(query):
             })
             seen_links.add(link)
             
-    # Ordena as notícias pela data de publicação
     items.sort(key=lambda x: x["dt"])
     print(f"Encontradas {len(items)} notícias de ontem.")
     return items
@@ -102,7 +108,7 @@ A data de referência para as notícias é {yday_date}.
         "Content-Type": "application/json",
     }
     payload = {
-        "model": "gpt-4o",  # Modelo mais recente e eficiente
+        "model": "gpt-4o",
         "messages": [
             {"role": "system", "content": "Você é um analista de mineração que cria resumos diários."},
             {"role": "user", "content": prompt},
@@ -118,7 +124,7 @@ A data de referência para as notícias é {yday_date}.
         return data["choices"][0]["message"]["content"].strip()
     except requests.RequestException as e:
         print(f"Erro Crítico: Falha ao comunicar com a API da OpenAI. Erro: {e}", file=sys.stderr)
-        sys.exit(1) # Termina o script se a API falhar, para não gerar um arquivo vazio
+        sys.exit(1)
 
 def main():
     """Função principal que orquestra a execução do script."""
@@ -134,17 +140,14 @@ def main():
 
     if not items:
         print("Nenhuma notícia de ontem foi encontrada. O script será encerrado sem gerar um novo resumo.")
-        return # Sai da função se não houver notícias
+        return
 
-    # Formata as manchetes para enviar à OpenAI
     lines = [f"• Título: {it['title']}\n  Fonte: {it['source']}\n  Link: {it['link']}" for it in items]
     headlines_text = "\n\n".join(lines)
     
     print(f"Gerando resumo para as notícias de {yday_date}...")
     summary = call_openai(headlines_text, yday_date, openai_api_key)
     
-    # *** ESTA É A PARTE MAIS IMPORTANTE QUE FOI ADICIONADA ***
-    # Salva o resumo no arquivo que o GitHub Actions irá commitar
     try:
         with open(OUTPUT_FILENAME, "w", encoding="utf-8") as f:
             f.write(f"# Resumo de Notícias sobre Mineração - {yday_date}\n\n")
