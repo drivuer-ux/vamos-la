@@ -1,32 +1,3 @@
-# Resumo de Notícias sobre Mineração - 16/08/2025
+# Análise de Inteligência de Mineração - 16/08/2025
 
-**Resumo Executivo:**
-
-1. A Agência Nacional de Mineração (ANM) implementou um novo regimento interno, que foi elogiado pela Associação Brasileira das Empresas de Pesquisa Mineral (ABPM). Essa mudança pode impactar positivamente a regulamentação e a eficiência operacional no setor.
-   
-2. A Associação dos Municípios Mineradores de Minas Gerais e do Brasil (AMIG Brasil) está promovendo uma nova abordagem para a mineração no país, focando em práticas mais sustentáveis e na melhoria das relações com as comunidades locais.
-
-3. O setor mineral foi crucial para o superávit da balança comercial brasileira no primeiro semestre de 2025, destacando a importância contínua da mineração para a economia nacional.
-
-**Categorização de Notícias:**
-
-* **Prospect Capital (Para Investidores):**
-  - **Título:** Setor mineral sustenta superávit da balança comercial no 1º semestre
-  - **Fonte:** MSN
-  - **Resumo:** O setor mineral foi um dos principais responsáveis pelo superávit da balança comercial brasileira no primeiro semestre de 2025. Este desempenho ressalta a importância da mineração para a economia do país, especialmente em tempos de desafios econômicos globais. Investidores devem observar as tendências de exportação e os preços das commodities minerais.
-  - **Link:** [https://tinyurl.com/25fgzln5](https://tinyurl.com/25fgzln5)
-
-* **Prospect Pro (Para Profissionais do Setor):**
-  - **Título:** AGÊNCIAS REGULADORAS | ABPM elogia novo regimento interno da ANM
-  - **Fonte:** Brasil Mineral
-  - **Resumo:** A ANM implementou um novo regimento interno que foi bem recebido pela ABPM. A mudança visa melhorar a regulamentação e a eficiência operacional do setor mineral, o que pode influenciar positivamente as operações e a conformidade técnica das empresas de mineração.
-  - **Link:** [https://tinyurl.com/2yaahdkx](https://tinyurl.com/2yaahdkx)
-
-* **Mapa do Conhecimento (Para Academia):**
-  - Nenhuma notícia relevante encontrada para este público hoje.
-
-* **Rochas & Histórias (Para Público Geral):**
-  - **Título:** MUNICÍPIOS MINERADORES | AMIG Brasil defende nova abordagem para a mineração no País
-  - **Fonte:** Brasil Mineral
-  - **Resumo:** A AMIG Brasil está promovendo uma nova abordagem para a mineração, que busca práticas mais sustentáveis e uma melhor relação com as comunidades locais. Essa iniciativa pode melhorar a percepção pública da mineração e incentivar práticas mais responsáveis no setor.
-  - **Link:** [https://tinyurl.com/2xw5n9ld](https://tinyurl.com/2xw5n9ld)
+Nenhuma notícia relevante encontrada nas fontes monitoradas para o dia de ontem.
