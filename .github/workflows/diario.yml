@@ -1,56 +1,54 @@
-name: resumo-mineracao-diario
+name: Resumo Diário de Notícias de Mineração
 
 on:
   schedule:
-    - cron: "0 10 * * *"   # 10:00 UTC = 07:00 America/Bahia
-  workflow_dispatch: {}     # Permite rodar manualmente
+    - cron: "0 10 * * *"   # Executa todo dia às 10:00 UTC (07:00 no fuso da Bahia)
+  workflow_dispatch: {}     # Permite que você execute este workflow manualmente na aba "Actions"
 
 permissions:
-  contents: write  # Permite commit no repo a partir do workflow
+  contents: write  # Permite que a Action faça commit e push de arquivos para o repositório
 
 jobs:
-  build:
+  build-and-commit:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: 1. Checkout do Repositório
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Necessário para fazer commit e push
+          fetch-depth: 0  # Necessário para o histórico do Git para fazer commit
 
-      - name: Setup Python
+      - name: 2. Configurar Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Install dependencies
+      - name: 3. Instalar Dependências
         run: |
           python -m pip install --upgrade pip
-          pip install feedparser requests googletrans==4.0.0-rc1 fpdf scikit-learn weasyprint  # Instala as dependências necessárias
+          pip install feedparser requests openai
 
-      - name: Generate summary
+      - name: 4. Gerar Resumo de Notícias
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}  # Certifique-se de configurar a chave da API no GitHub Secrets
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
-          echo "Iniciando o script..."
-          python miner_news.py  # Executa o script Python
-          echo "Script terminado. Verificando arquivos:"
-          ls -la
-          if [ -f resumo-mineracao.txt ]; then
-            echo "Arquivo criado! Conteúdo:"
-            cat resumo-mineracao.txt
-          else
-            echo "Arquivo NÃO criado!"
-            exit 1
-          fi
+          echo "Iniciando o script Python para gerar o resumo..."
+          python miner_news.py
+          echo "Script finalizado."
 
-      - name: Commit & push if changed
+      - name: 5. Fazer Commit e Push do Resumo
+        # --- INÍCIO DA CORREÇÃO ---
+        # Adicionado o 'fi' no final para fechar corretamente o bloco 'if'.
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
           git add resumo-mineracao.txt
-          if git diff --cached --quiet; then
-            echo "Sem mudanças para commitar."
+          
+          if git diff --staged --quiet; then
+            echo "Nenhuma notícia nova encontrada. Sem mudanças para commitar."
           else
-            git commit -m "Atualiza resumo de mineração [skip ci]"
+            git commit -m "📰 Atualiza resumo diário de notícias de mineração" -m "Commit automático gerado por GitHub Actions [skip ci]"
             git push
-            echo "Commit enviado com sucesso."
+            echo "Resumo atualizado e enviado para o repositório com sucesso."
+          fi
+        # --- FIM DA CORREÇÃO ---
