@@ -1,4 +1,4 @@
-name: Resumo Diário de Notícias de Mineração
+name: Resumo Diário de Inteligência de Mineração
 
 on:
   schedule:
@@ -15,7 +15,7 @@ jobs:
       - name: 1. Checkout do Repositório
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Necessário para o histórico do Git para fazer commit
+          fetch-depth: 0
 
       - name: 2. Configurar Python
         uses: actions/setup-python@v5
@@ -25,19 +25,18 @@ jobs:
       - name: 3. Instalar Dependências
         run: |
           python -m pip install --upgrade pip
-          pip install feedparser requests openai
+          # Adicionada a biblioteca de tradução
+          pip install feedparser requests openai googletrans-py
 
-      - name: 4. Gerar Resumo de Notícias
+      - name: 4. Coletar, Traduzir e Gerar Análise de Notícias
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
-          echo "Iniciando o script Python para gerar o resumo..."
+          echo "Iniciando script de análise de inteligência..."
           python miner_news.py
           echo "Script finalizado."
 
-      - name: 5. Fazer Commit e Push do Resumo
-        # --- INÍCIO DA CORREÇÃO ---
-        # Adicionado o 'fi' no final para fechar corretamente o bloco 'if'.
+      - name: 5. Fazer Commit e Push da Análise
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -47,8 +46,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "Nenhuma notícia nova encontrada. Sem mudanças para commitar."
           else
-            git commit -m "📰 Atualiza resumo diário de notícias de mineração" -m "Commit automático gerado por GitHub Actions [skip ci]"
+            git commit -m "📊 Atualiza análise diária de inteligência de mineração" -m "Commit automático gerado por GitHub Actions [skip ci]"
             git push
-            echo "Resumo atualizado e enviado para o repositório com sucesso."
+            echo "Análise atualizada e enviada para o repositório com sucesso."
           fi
-        # --- FIM DA CORREÇÃO ---
