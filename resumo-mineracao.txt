@@ -1,61 +1,41 @@
-**BOLETIM DE NOTÍCIAS DE MINERAÇÃO - 12/12/2025**
+**BOLETIM DE NOTÍCIAS DE MINERAÇÃO - 13/12/2025**
 
 **### Prospect Capital**
-*(Notícias para investidores e mercado financeiro. Foco em M&A, resultados de empresas, investimentos, tendências de commodities, projetos de expansão.)*
-
-**Expansão da Cooperação Mineira entre Quirguistão e Tajiquistão**
-O Quirguistão está reforçando sua estratégia de cooperação no setor de mineração com o vizinho Tajiquistão. Em um movimento que visa aumentar a produtividade e melhorar o intercâmbio tecnológico, os dois países planejam uma série de projetos conjuntos voltados para a exploração e extração de minérios. Esta colaboração é vista como uma forma de impulsionar as economias locais e atrair investimentos internacionais, aproveitando os recursos minerais abundantes na região.
-
-A parceria entre os dois países centra-se em compartilhar conhecimentos técnicos e explorar novas tecnologias para melhorar a eficiência das operações de mineração. O Quirguistão, com suas vastas reservas de ouro e outros minerais preciosos, espera que a colaboração com o Tajiquistão permita um melhor aproveitamento de seus recursos naturais e crie um ambiente mais favorável para investidores estrangeiros.
-
-A expectativa é que esta cooperação também contribua para a estabilidade regional, ao fomentar uma relação econômica mais estreita entre os dois países. Analistas veem a iniciativa como um passo importante para o desenvolvimento sustentável do setor mineral na Ásia Central, destacando o potencial de crescimento econômico significativo através de operações conjuntas e troca de expertise.
-
-*Fontes: 24.KG*
-*Links: [Link 1](https://tinyurl.com/2b38erw4)*
+Nenhuma notícia relevante para esta categoria hoje.
 
 ---
 
 **### Prospect Pro**
-*(Notícias para profissionais do setor. Foco em tecnologia, geologia, inovações em engenharia, segurança operacional, novos equipamentos e regulamentação técnica.)*
 
-**Brasil Intensifica Investimentos em Digitalização do Setor Mineral**
-O setor mineral brasileiro está aumentando significativamente seus investimentos em digitalização, segundo um relatório recente da Brasil Mineral. Empresas de mineração estão adotando tecnologias digitais para otimizar operações, melhorar a segurança e aumentar a eficiência. Essa tendência está alinhada com a transformação digital global que busca integrar soluções tecnológicas para enfrentar desafios operacionais e ambientais.
+**Transformação Digital no Setor de Mineração com OneGov ECMS**
 
-A digitalização na mineração abrange desde a automação de processos até o uso de inteligência artificial para análise de dados geológicos e predição de falhas em equipamentos. As empresas brasileiras estão investindo em sensores avançados e plataformas de análise de dados em tempo real, que permitem uma melhor tomada de decisões e gestão de recursos.
+O governo federal da Nigéria revelou recentemente o OneGov ECMS, um sistema projetado para acelerar a transformação digital no setor de mineração do país. Este novo sistema visa integrar as operações de mineração com ferramentas tecnológicas avançadas, promovendo maior eficiência e transparência na extração e gestão de recursos minerais. Espera-se que a implementação do OneGov ECMS ajude a resolver desafios históricos do setor, como burocracia excessiva e a falta de dados precisos em tempo real.
 
-Especialistas destacam que a digitalização pode ser um divisor de águas para o setor, proporcionando não apenas ganhos de produtividade, mas também melhorias significativas em segurança e sustentabilidade. A expectativa é que essas inovações ajudem a reduzir o impacto ambiental das operações de mineração e promovam práticas mais responsáveis.
+O secretário permanente do Ministério de Minas e Aço da Nigéria destacou que a iniciativa faz parte de um esforço mais amplo para modernizar o setor de mineração, alinhando-o com as melhores práticas globais. A expectativa é que o sistema não apenas melhore a eficiência operacional, mas também aumente a atratividade do setor para investidores estrangeiros, que frequentemente citam a falta de transparência como um dos principais obstáculos para investimentos na região.
 
-*Fontes: Brasil Mineral*
-*Links: [Link 1](https://tinyurl.com/27jgp4l7)*
+Se bem-sucedido, o OneGov ECMS poderá servir de modelo para outros países africanos que enfrentam desafios semelhantes no setor mineral. Especialistas apontam que a digitalização é um passo crucial para garantir a sustentabilidade e a competitividade da mineração na era moderna, contribuindo para um desenvolvimento econômico mais robusto e sustentável.
+
+*Fontes: The Guardian Nigeria News*
+*Links: [Link 1](https://tinyurl.com/26bp8s2j)*
 
 ---
 
 **### Mapa do Conhecimento**
-*(Notícias para a academia e pesquisadores. Foco em P&D, estudos científicos, parcerias com universidades, novas descobertas e artigos relevantes.)*
-
-**Brasil Avança com o PlanGEO 2026–2035 para Mapeamento Mineral**
-O governo brasileiro anunciou um avanço significativo em sua estratégia de mapeamento mineral com o lançamento do PlanGEO 2026–2035. Este plano ambicioso é projetado para fortalecer a transição energética do país, fornecendo dados geológicos detalhados que podem ser usados para identificar novas áreas de exploração mineral. A iniciativa é uma colaboração entre agências governamentais e instituições de pesquisa, com foco em tecnologias inovadoras de sensoriamento remoto e geoprocessamento.
-
-O PlanGEO visa não apenas mapear os recursos minerais existentes, mas também identificar minerais críticos que são essenciais para tecnologias de energia renovável, como baterias de lítio e painéis solares. Esse mapeamento detalhado será crucial para a estratégia do Brasil em se tornar um líder na produção de minerais de importância estratégica para a transição energética global.
-
-Pesquisadores e acadêmicos têm destacado a importância do PlanGEO como uma ferramenta de desenvolvimento sustentável, promovendo o uso responsável dos recursos naturais do Brasil. Além disso, espera-se que o plano incentive parcerias entre universidades e a indústria, gerando inovação e novas oportunidades de pesquisa.
-
-*Fontes: Cenário Energia*
-*Links: [Link 1](https://tinyurl.com/27qc3orw)*
+Nenhuma notícia relevante para esta categoria hoje.
 
 ---
 
 **### Rochas & Histórias**
-*(Notícias para o público geral. Foco em sustentabilidade, meio ambiente, impacto social, curiosidades sobre minerais, história e relação com comunidades.)*
 
-**ANM Consulta Comunidades Locais Sobre CFEM**
-A Agência Nacional de Mineração (ANM) está buscando um diálogo mais próximo com as comunidades dos municípios mineradores para discutir a Compensação Financeira pela Exploração de Recursos Minerais (CFEM). A iniciativa visa garantir que as vozes das comunidades locais sejam ouvidas e consideradas na distribuição dos recursos provenientes da mineração. Este movimento é parte de um esforço mais amplo para tornar a mineração no Brasil mais inclusiva e socialmente responsável.
+**A Importância da Consistência Política no Setor de Mineração**
 
-As consultas estão sendo realizadas em várias regiões mineradoras, onde os moradores poderão expressar suas preocupações e sugestões sobre a utilização dos fundos da CFEM. O objetivo é assegurar que os recursos sejam aplicados de forma a beneficiar diretamente as comunidades impactadas pelas atividades de mineração, promovendo desenvolvimento local e melhorias na infraestrutura.
+A Câmara de Minas reiterou recentemente a importância de uma política consistente no setor de mineração, destacando os desafios enfrentados pelas empresas devido à instabilidade regulatória. Essa posição foi reforçada em um comunicado que sublinha a necessidade de políticas claras e estáveis para garantir o desenvolvimento sustentável e o crescimento econômico no setor mineral.
 
-Essa abordagem participativa é vista como um passo positivo para melhorar as relações entre as empresas de mineração e as comunidades locais, reduzindo conflitos e promovendo uma gestão mais transparente e equitativa dos recursos naturais. Analistas acreditam que essa iniciativa pode servir de modelo para outros países que enfrentam desafios semelhantes na gestão de recursos minerais.
+A instabilidade política e regulatória tem sido uma preocupação constante para o setor de mineração, afetando desde a exploração até a extração e comercialização de minerais. A Câmara de Minas argumenta que uma abordagem política coesa não apenas proporcionaria um ambiente mais seguro para investidores, mas também garantiria a proteção ambiental e o bem-estar das comunidades locais.
 
-*Fontes: Brasil Mineral*
-*Links: [Link 1](https://tinyurl.com/2yyembms)*
+O apelo por consistência política é visto como um passo crucial para transformar o potencial mineral em um motor econômico sustentável. Analistas do setor afirmam que, sem uma política clara e estável, o setor corre o risco de estagnação, prejudicando não apenas a economia, mas também o desenvolvimento social das regiões mineradoras.
+
+*Fontes: MyJoyOnline*
+*Links: [Link 1](https://tinyurl.com/2arlwcys)*
 
 ---
